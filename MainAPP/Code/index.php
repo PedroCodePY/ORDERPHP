@@ -20,34 +20,56 @@
         <div class="sticky-top">
             <h3>Hi, What would you like to buy?</h3>
         </div>
-        <div class="menu">
-            <?php
-            if (mysqli_num_rows($sql_run) > 0) {
-                foreach ($sql_run as $row) {
-            ?>
-                    <div class="card">
-                        <img src=<?php echo $row['Image'] ?> class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['Name'] ?></h5>
-                            <p class="card-text"><?php echo $row['Rate'] ?>&#11088;</p>
-                            <?php
-                            $price = number_format($row['Price']);
-                            $rupiah = "Rp $price";
-                            ?>
-                            <a href="#" class="btn btn-primary"><?php echo $rupiah ?></a>
+        <form method="post" action="OrderFunction.php">
+            <div class="menu">
+                <?php
+                if (mysqli_num_rows($sql_run) > 0) {
+                    foreach ($sql_run as $row) {
+                ?>
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="<?php echo $row['Image'] ?>" class="card-img-top">
+                                <h5 class="card-title"><?php echo $row['Name'] ?></h5>
+                                <p class="card-text"><?php echo $row['Rate'] ?>&#11088;</p>
+                                <?php
+                                $price = number_format($row['Price']);
+                                $rupiah = "Rp $price";
+                                ?>
+                                <p><?php echo $rupiah ?></p>
+                                <div class="quantity">
+                                    <button type="button" class="pm" onclick="changeQuantity(<?php echo $row['ID']; ?>, 1)">+</button>
+                                    <input type="number" name="quantity[<?php echo $row['ID']; ?>]" id="quantity-<?php echo $row['ID']; ?>" class="Num" min="0" value="0">
+                                    <button type="button" class="pm" onclick="changeQuantity(<?php echo $row['ID']; ?>, -1)">-</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-            <?php
+                <?php
+                    }
+                } else {
+                    echo "No Item Found";
                 }
-            } else {
-                echo "No Item Found";
-            }
-            ?>
-        </div>
-        <div class="fixed-bottom">
-            <h1>Hello</h1>
-        </div>
+                ?>
+            </div>
+            <button type="submit" id="continueButton" class="fixed-bottom" name="send"><i><img src="../Asset/cart-shopping-fast.png" class="btnico"></i>Order</button>
+        </form>
     </div>
+
+    <script>
+        function changeQuantity(itemId, changeAmount) {
+            const input = document.getElementById(`quantity-${itemId}`);
+            if (input) {
+                let currentValue = parseInt(input.value);
+                if (isNaN(currentValue)) {
+                    currentValue = 0;
+                }
+                const newValue = currentValue + changeAmount;
+                if (newValue >= 0) { // Prevent negative quantities
+                    input.value = newValue;
+                    checkQuantities();
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
