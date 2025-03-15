@@ -1,28 +1,74 @@
 *{
+    font-family: "Poppins";
     margin: 0;
     padding: 0;
-    font-family: "Poppins";
 }
 .main{
-    height: 100dvh;
+    background-color: rgb(232, 232, 232);
     width: 100%;
+    height: 100dvh;
+    align-content: center;
+    justify-items: center
 }
-img{
-    height: 75%;
-    width: auto;
-    justify-self: start;
+.form{
+    padding: 3%;
+    max-width: 80%;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
 }
-.position-absolute{
+.paymentType{
+    width: 100%;
     height: 100%;
 }
-.form-check{
+.pytype{
     width: 100%;
-    height: 50px;
-    text-align: center;
+    height: 30px;
     display: flex;
-    justify-content: center;
+    margin-bottom: 5%;
 }
-form{
+.imageCon{
+    width: 8%;
+    height: 100%;
+    margin-right: 3%;
+    align-content: center;
+}
+.labelCon{
+    width: 64%;
+    height: 100%;
+    align-content: center;
+}
+.inputCon{
+    width: 25%;
+    height: 100%;
+    align-content: center;
+    text-align: right;
+}
+.image{
+    height: 25px;
+    width: 31px;
+}
+.py{
     width: 50%;
-    height: auto;
+    height: 50%;
+}
+p{
+    font-size: smaller;
+}
+h1{
+    font-size: large;
+    font-weight: 500;
+}
+.sticky-bottom{
+    width: 100%;
+    height: 40px;
+    background-color: #008cff;
+    border: 0;
+    border-radius: 25px;
+    margin-bottom: 1%;
+    width: 98%;
+    margin-left: 1%;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
 }
