@@ -14,16 +14,16 @@
         <div class="form">
             <h1>Payment Method</h1>
             <p>Every transaction out of this app, is not our resposible</p>
-            <form action="" class="paymentType">
+            <form action="" class="paymentType" method="post">
                 <div class="pytype">
                     <div class="imageCon">
                         <img src="../Asset/coins.png" alt="" class="image">
                     </div>
                     <div class="labelCon">
-                        <label for="py" class="name">Cash</label>
+                        <label for="py1" class="name">Cash</label>
                     </div>
                     <div class="inputCon">
-                        <input type="radio" name="py" id="" class="py" align="right">
+                        <input type="radio" name="py1" id="" class="py" align="right">
                     </div>
                 </div>
                 <div class="pytype">
@@ -31,10 +31,10 @@
                         <img src="../Asset/bank.png" alt="" class="image">
                     </div>
                     <div class="labelCon">
-                        <label for="py" class="name">Bank</label>
+                        <label for="py2" class="name">Bank</label>
                     </div>
                     <div class="inputCon">
-                        <input type="radio" name="py" id="" class="py" align="right">
+                        <input type="radio" name="py2" id="" class="py" align="right">
                     </div>
                 </div>
                 <div class="pytype">
@@ -42,10 +42,10 @@
                         <img src="../Asset/ovoLogo.png" alt="" class="image">
                     </div>
                     <div class="labelCon">
-                        <label for="py" class="name">OVO</label>
+                        <label for="py3" class="name">OVO</label>
                     </div>
                     <div class="inputCon">
-                        <input type="radio" name="py" id="" class="py" align="right">
+                        <input type="radio" name="py3" id="" class="py" align="right">
                     </div>
                 </div>
                 <div class="pytype">
@@ -53,10 +53,10 @@
                         <img src="../Asset/gopayLogo.webp" alt="" class="image">
                     </div>
                     <div class="labelCon">
-                        <label for="py" class="name">GoPay</label>
+                        <label for="py4" class="name">GoPay</label>
                     </div>
                     <div class="inputCon">
-                        <input type="radio" name="py" id="" class="py" align="right">
+                        <input type="radio" name="py4" id="" class="py" align="right">
                     </div>
                 </div>
                 <div class="pytype">
@@ -64,10 +64,10 @@
                         <img src="../Asset/Dana-logo.png" alt="" class="image">
                     </div>
                     <div class="labelCon">
-                        <label for="py" class="name">DANA</label>
+                        <label for="py5" class="name">DANA</label>
                     </div>
                     <div class="inputCon">
-                        <input type="radio" name="py" id="" class="py" align="right">
+                        <input type="radio" name="py5" id="" class="py" align="right">
                     </div>
                 </div>
                 <button type="submit" id="continueButton" class="sticky-bottom" name="send">Pay</button>

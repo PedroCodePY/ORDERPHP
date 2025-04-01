@@ -30,7 +30,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    grid-auto-rows: 200px;
+    grid-auto-rows: 400px;
     height: 100%;
     overflow: auto;
 }
@@ -38,13 +38,17 @@
     margin: 1%;
     text-align: center;
 }
+.card-body{
+    height: auto;
+}
 .btnico{
     height:65%;
     margin-right: 2%;
 }
 .quantity{
     display: flex;
-    border: 3px solid #008cff;
+    border: 2px solid #008cff;
+    height: auto;
     border-radius: 10px;
     padding: 2%;
 }
@@ -73,4 +77,8 @@ form{
     padding-left: 0;
     text-align: center;
     border: 0;
+}
+.card-img-top{
+    width: 200px;
+    height: 200px;
 }
