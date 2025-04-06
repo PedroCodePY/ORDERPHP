@@ -2,13 +2,13 @@
 session_start();
 $_SESSION['error'] = "";
 if (isset($_SESSION['Username'])) {
-    header("location:Dashboard.php");
+    header("location:Main.php");
     exit;
 }
 function verifyLogin($conn, $username, $password)
 {
     $sanitizedUsername = mysqli_real_escape_string($conn, $username);
-    $sql = "SELECT Password FROM user WHERE Username = '$sanitizedUsername'";
+    $sql = "SELECT Password FROM orderuser WHERE Username = '$sanitizedUsername'";
     $result = mysqli_query($conn, $sql);
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -28,11 +28,11 @@ if (isset($_POST['loginbtn'])) {
     $password = $_POST['pass'];
     if (verifyLogin($conn, $Username, $password)) {
         $_SESSION['Username'] = $Username;
-        header("Location: dashboard.php");
+        header("Location: Main.php");
         exit;
     } else {
         $_SESSION["error"] = "Invalid username or password";
-        header("location: login.php");
+        header("location: index.php");
         exit;
     }
 }
@@ -65,36 +65,33 @@ if (isset($_POST['loginbtn'])) {
         crossorigin="anonymous"></script>
     <div class="Main">
         <div class="loginplace">
-            <center>
-                <img src="../Asset/Logo.png" alt="" class="logo" />
-                <form id="LoginForm" method="post" action="Login.php">
-                    <div class="userform">
-                        <img src="../Asset/user.png" alt="" class="image" />
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            name="user"
-                            class="usernamedesing"
-                            id="username"
-                            focus />
-                    </div>
-                    <br />
-                    <div class="userform">
-                        <img src="../Asset/key.png" alt="" class="image" />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            name="pass"
-                            class="passworddesing"
-                            id="password" />
-                        <img src="../Asset/eye.png" class="image" type="button" id="ShowHide" />
-                    </div>
-                    <button type="submit" class="Loginbtn" name="loginbtn">Masuk</button>
-                    <p class="error" id="error"><?php echo $_SESSION['error'] ?></p>
-                    <p>Don't have an account?<a href="SignUp.php">SignUp</a></p>
-                </form>
-                <p class="Copyright">&copy;Skydome 2025</p>
-            </center>
+            <img src="../Asset/Logo.png" alt="" class="logo" />
+            <form id="LoginForm" method="post" action="#" class="loginform">
+                <div class="userform">
+                    <img src="../Asset/user.png" alt="" class="image" />
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        name="user"
+                        class="inputc"
+                        id="username"
+                        focus />
+                </div>
+                <div class="userform">
+                    <img src="../Asset/key.png" alt="" class="image" />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        name="pass"
+                        class="inputcp"
+                        id="password" />
+                    <img src="../Asset/eye.png" class="image" type="button" id="ShowHide" />
+                </div>
+                <button type="submit" class="Loginbtn" name="loginbtn">Masuk</button>
+                <p class="error" id="error"><?php echo $_SESSION['error'] ?></p>
+                <p>Don't have an account?<a href="SignUp.php">SignUp</a></p>
+            </form>
+            <p class="Copyright">&copy;Skydome 2025</p>
         </div>
         <script src="../Javascript/HideShow.js"></script>
     </div>
