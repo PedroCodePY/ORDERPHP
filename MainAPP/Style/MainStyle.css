@@ -7,6 +7,14 @@
     width: 100dvw;
     height: 100dvh;
 }
+.item{
+    width: 95%;
+    height: 10%;
+    border: 3px solid black;
+    border-radius: 10px;
+    align-content: center;
+    text-align: left;
+}
 .top{
     width:100%;
     height: 7%;
@@ -37,6 +45,7 @@
 .content{
     width: 100%;
     height: 86%;
+    justify-items: center;
 }
 .navbar{
     width: 100%;
@@ -49,7 +58,27 @@
     align-items: center;
     align-content: center;
 }
+.nav-item{
+    height: 100%;
+}
 .icon{
-    height: 70%;
+    height: 25px;
     width: auto;
+}
+.iconM{
+    height: 50px;
+    width: auto;
+}
+.border{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    align-content: center;
+}
+.pp{
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
 }

@@ -28,22 +28,40 @@ if (!isset($_SESSION['Username'])) {
             </div>
         </div>
         <div class="content">
-            <div class="item"></div>
+            <div class="item">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#"><img src="../Asset/ovoLogo.png" alt="" class="iconM"></a>
+                    </li>
+                </ul>
+            </div>
             <div class="shop"></div>
         </div>
         <div class="navbar">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><img src="../Asset/home.png" alt="" class="icon"></a>
+                    <a class="nav-link" aria-current="page" href="#"><img src="../Asset/home.png" alt="" class="icon"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#"><img src="../Asset/home.png" alt="" class="icon"></a>
+                </li>
+                <?php
+                $conn = mysqli_connect("localhost", "root", "", "pos_app");
+                $sql = "SELECT * FROM orderuser WHERE Username = '" . $_SESSION['Username'] . "'";
+                $query = mysqli_query($conn, $sql);
+                if ($row = mysqli_fetch_assoc($query)) {
+                    if (!empty($row['ProfilePicture'])) {
+                        echo "<div class='border'><img class='pp' src='../Asset/ProfilePicture/" . htmlspecialchars($row['ProfilePicture']) . "'></div>";
+                    } else {
+                        echo "<div class='border'><img class='pp' src='../Asset/ProfilePicture/user.png'></div>";
+                    }
+                }
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="../Asset/receipt.png" alt="" class="icon"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" aria-disabled="true"><img src="../Asset/setting.png" alt="" class="icon"></a>
                 </li>
             </ul>
         </div>
