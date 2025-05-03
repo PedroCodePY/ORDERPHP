@@ -1,3 +1,7 @@
+<?php
+session_start();
+unset($_SESSION['BuyerCode']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,18 +32,21 @@
                 ?>
                         <div class="card">
                             <div class="card-body">
-                                <img src="../Asset/ProductImage/<?php echo $row['Image'] ?>" class="card-img-top">
-                                <h5 class="card-title"><?php echo $row['Name'] ?></h5>
-                                <p class="card-text"><?php echo $row['Rate'] ?>&#11088;</p>
+                                <div class="image" style="width: 99%; height: 170px; margin-bottom: 10px;">
+                                    <img src="../Asset/ProductImage/<?php echo $row['Image']; ?>" style="width: 100%; height: 100%; object-fit:cover; object-position:center; border-radius: 10px;">
+                                </div>
+                                <h5 class="card-title"><?php echo $row['Name']; ?></h5>
+                                <h6 class="card-text"><?php echo $row['Shop']; ?></h6>
+                                <p class="card-text"><?php echo $row['Rate']; ?>&#11088;</p>
                                 <?php
                                 $price = number_format($row['Price']);
                                 $rupiah = "Rp $price";
                                 ?>
                                 <p><?php echo $rupiah ?></p>
                                 <div class="quantity">
-                                    <button type="button" class="pm" onclick="changeQuantity(<?php echo $row['ID']; ?>, 1)">+</button>
-                                    <input type="number" name="quantity[<?php echo $row['ID']; ?>]" id="quantity-<?php echo $row['ID']; ?>" class="Num" min="0" value="0">
                                     <button type="button" class="pm" onclick="changeQuantity(<?php echo $row['ID']; ?>, -1)">-</button>
+                                    <input type="number" name="quantity[<?php echo $row['ID']; ?>]" id="quantity-<?php echo $row['ID']; ?>" class="Num" min="0" value="0">
+                                    <button type="button" class="pm" onclick="changeQuantity(<?php echo $row['ID']; ?>, 1)">+</button>
                                 </div>
                             </div>
                         </div>
